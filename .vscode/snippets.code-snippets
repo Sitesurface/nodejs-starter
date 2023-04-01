@@ -1,0 +1,104 @@
+{
+	"Resource Controller":{
+		"prefix": "ct",
+		"body": [
+			"import { Router, Request, Response, NextFunction } from 'express';",
+			"import { Inject, Service } from 'typedi';",
+			"import Controller from '@/utils/interfaces/controller.interface';",
+			"import HttpException from '@/utils/exceptions/http.exceptions';",
+			"import validationMiddleware from '@/middleware/validation.middleware';",
+			"import validate from './$1.validation';",
+			"import $2Service from './$1.service';",
+			"import authenticated from '@/middleware/authenticated.middleware';",
+			"",
+			"@Service()",
+			"class $2Controller implements Controller {",
+			"  public path = '/$1s';",
+			"  public router = Router();",
+			"  private $2Service = new $2Service();",
+			"",
+			"  constructor(@Inject() private userService: UserService) {",
+			"    this.initialiseRoutes();",
+			"  }",
+			"",
+			"  private initialiseRoutes(): void {",
+			"",
+			"  }",
+
+			"}",
+			"",
+			"export default $2Controller;",
+
+		],
+	    "description": "Boilerplate for creating controller"
+	},
+	"Controller Function":{
+		"prefix": "cf",
+		"body": [
+			"private $1 = async (",
+			"  req: Request,",
+			"  res: Response,",
+			"  next: NextFunction",
+		  	"): Promise<Response | void> => {",
+			"  try {",
+			"  $2",
+			"  } catch (error: any) {",
+			"    next(error);",
+			"  }",
+		  	"};",
+		],
+	    "description": "Boilerplate for creating controller function"
+	},
+	"Mongoose Model":{
+		"prefix": "mm",
+		"body": [
+			"import { Schema, model } from 'mongoose';",
+			"import {I$2} from './$1.interface';",
+			"",
+			"const $2Schema = new Schema<I$2>(",
+			"  {",
+			"  },",
+			"  {",
+			"    timestamps: {",
+			"      createdAt: 'created_at',",
+			"      updatedAt: 'updated_at',",
+			"    },",
+			"  }",
+			");",
+			"",
+			"export default model<I$2 & Document>('$2', $2Schema);",
+
+		],
+		"description": "Create mongoose model"
+	},
+	"Controller Service":{
+		"prefix": "cs",
+		"body": [
+			"import { Inject, Service } from 'typedi';",
+			"import $2Repository from './$1.repository';",
+			"",
+			"@Service()",
+			"class $2Service {",
+			"  constructor(@Inject() private $1Repo: $2Repository) {}",
+			"}",
+			"",
+			"export default $2Service;"
+		],
+		"description": "Create Service"
+	},
+	"Controller Repository":{
+		"prefix": "cr",
+		"body": [
+			"import { Service } from 'typedi';",
+			"import $2Repository from './$1.repository';",
+			"",
+			"@Service()",
+			"class $2Service {",
+			"  constructor(@Inject() private $1Repo: $2Repository) {}",
+			"}",
+			"",
+			"export default $2Service;"
+		],
+		"description": "Create Service"
+	}
+}

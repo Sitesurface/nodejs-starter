@@ -1,0 +1,7 @@
+{
+    "something_went_wrong": "Something went wrong",
+    "unauthorized": "Unauthorized",
+    "already_exists": "Already Exists",
+    "user_create_failed":"Failed to create user. Please try again later",
+    "user_update_failed":"Failed to update user. Please try again later"
+}
